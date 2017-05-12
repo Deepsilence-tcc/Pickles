@@ -6,8 +6,10 @@ var config = require('./config.js');
 
 module.exports = function() {
     var db = mongoose.connect(config.mongodb);
-    require('../models/user.model');
     require('../models/dictionary.model');
-    require('../models/member.model');
+    require('../models/authority.model');
+    require('../models/user.model');
+    require('../models/movie.type.model.js');
+    require('../models/movie.model');
     return db;
 };

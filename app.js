@@ -4,6 +4,8 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var ResultModel = require('./utils/resultmodel');
+var CodeMessage = require('./utils/codemessage');
 
 //数据库配置
 var mongoose = require('./config/mongoose.js');
@@ -13,7 +15,15 @@ var db = mongoose();
 var app = express();
 
 
-var UserRouter = require('./routes/user.routes');
+var UserRouter = require('./routes/user.route.js');
+var MovieRouter = require('./routes/movie.route.js');
+var MovieTypeRouter = require('./routes/movie.type.route.js');
+
+app.use(function(req, res, next) {
+    res.setHeader('Access-Control-Allow-Methods', 'POST,GET,OPTIONS,PUT,DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type,Accept,Authorization');
+    next();
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -28,7 +38,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/user',UserRouter);
-
+app.use('/movie',MovieRouter);
+app.use('/type',MovieTypeRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -39,13 +50,10 @@ app.use(function(req, res, next) {
 
 // error handler,发生错误不会终止进程，只会打印错误
 app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+    var resultMode = new ResultModel();
+    resultMode.msg = CodeMessage.MSG_0;
+    resultMode.code = 0
+    return res.json(resultMode);
 });
 
 module.exports = app;

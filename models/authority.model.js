@@ -1,13 +1,24 @@
-/**
- * Created by cong on 2017/4/26.
- */
+
+
 var mongoose = require('mongoose');
 
-var DictionarySchema = new mongoose.Schema({
+var AuthoritySchema = new mongoose.Schema({
 
-    catalogId:Number,
-    itemType:Number,
-    name:String,
+    catalogId:{
+        type:Number,
+        default:1,
+        require:true
+    },
+    itemType:{
+        type:Number,
+        default:1,
+        require:true
+    },
+    name:{
+        type:String,
+        default:1,
+        require:true
+    },
     firstCount:Number,
     secondCount:Number,
     thirdCount:Number,
@@ -29,4 +40,4 @@ var DictionarySchema = new mongoose.Schema({
     versionKey: false
 })
 
-mongoose.model('Dictionary',DictionarySchema,'Dictionary');
+mongoose.model('Authoritys',AuthoritySchema,'Authoritys');

@@ -3,19 +3,23 @@
  */
 
 var mongoose = require('mongoose');
-
 var UserSchema = new mongoose.Schema({
 
     uniqueId:{
         type:String,
         required:true
     },
-    userName:String,
-    type:Number,
+    name:String,
     description:{
-       type:String,
-       default:'普通会员'
+        type:String,
+        default:'普通会员'
     },
+    level:Number,
+    authorityId:{
+        type:mongoose.Schema.ObjectId,
+        ref:'Authoritys'
+    },
+    tel:String,
     isDelete:{
         type:Number,
         default:0
