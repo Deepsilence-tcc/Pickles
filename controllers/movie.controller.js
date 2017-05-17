@@ -35,6 +35,7 @@ module.exports = {
                     isDelete: 0
                 }
             )
+                .populate('detailId')
                 .skip((pageIndex - 1) * pageSize)
                 .limit(pageSize)
                 .exec(function (err, docs) {
@@ -83,6 +84,7 @@ module.exports = {
                     isDelete: 0
                 }
             )
+                .populate('detailId')
                 .skip((pageIndex - 1) * pageSize)
                 .limit(pageSize)
                 .exec(function (err, docs) {
@@ -130,6 +132,7 @@ module.exports = {
                 sortByContent: 1,
                 isDelete: 0
             })
+                .populate('detailId')
                 .skip((pageIndex - 1) * pageSize)
                 .limit(pageSize)
                 .exec(function (err, docs) {
@@ -169,6 +172,7 @@ module.exports = {
                 itemType: 3,
                 isDelete: 0
             })
+                .populate('detailId')
                 .skip((pageIndex - 1) * pageSize)
                 .limit(pageSize)
                 .exec(function (err, docs) {
@@ -211,6 +215,7 @@ module.exports = {
                     isDelete: 0
                 }
             )
+                .populate('detailId')
                 .skip((pageIndex - 1) * pageSize)
                 .limit(pageSize)
                 .exec(function (err, docs) {

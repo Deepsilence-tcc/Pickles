@@ -9,6 +9,7 @@ module.exports = function() {
     require('../models/dictionary.model');
     require('../models/authority.model');
     require('../models/user.model');
+    require('../models/source.detail.model');
     require('../models/movie.type.model.js');
     require('../models/movie.model');
     return db;

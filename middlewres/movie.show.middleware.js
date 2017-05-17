@@ -33,6 +33,7 @@ module.exports = function (req, res, next) {
                         isDelete: 0
                     }
                 )
+                    .populate('detailId')
                     .skip((pageIndex - 1) * pageSize)
                     .limit(pageSize)
                     .exec(function (err, docs) {

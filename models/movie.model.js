@@ -34,6 +34,10 @@ var MovieSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     }, //修改时间
+    detailId:{
+        type:mongoose.Schema.ObjectId,
+        ref:'SourceDetail'
+    }
 },{
     versionKey: false
 });
