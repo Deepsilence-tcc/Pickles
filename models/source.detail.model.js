@@ -13,6 +13,7 @@ var SourceDetailSchema = new mongoose.Schema({
     gender:String,
     location:String,
     description:String,
+    times:Number,
     isDelete:{
         type:Number,
         default:0
