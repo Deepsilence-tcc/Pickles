@@ -12,5 +12,6 @@ module.exports = function() {
     require('../models/source.detail.model');
     require('../models/movie.type.model.js');
     require('../models/movie.model');
+    require('../models/order.model');
     return db;
 };

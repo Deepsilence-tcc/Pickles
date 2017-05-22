@@ -16,12 +16,10 @@ var MovieSchema = new mongoose.Schema({
 
     picUrl:String,
     contentUrl:String,
-    description:String,
     sortId:{
         type:mongoose.Schema.ObjectId,
         ref:'MovieTypes'
     },
-    watchTimes:Number,
     isDelete:{
         type:Number,
         default:0
