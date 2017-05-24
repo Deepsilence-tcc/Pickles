@@ -17,9 +17,9 @@ var orderSchema = new mongoose.Schema({
             type: String,
             required: true,
         },
-        validTime: {
-            type: Date,
-            required: true,
+        uniqueId:{
+            type:String,
+            required:true
         },
         price: {
             type: Number,

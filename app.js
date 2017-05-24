@@ -18,6 +18,7 @@ var app = express();
 var UserRouter = require('./routes/user.route.js');
 var MovieRouter = require('./routes/movie.route.js');
 var MovieTypeRouter = require('./routes/movie.type.route.js');
+var OrderRouter = require('./routes/order.route.js');
 
 app.use(function(req, res, next) {
     res.setHeader('Access-Control-Allow-Methods', 'POST,GET,OPTIONS,PUT,DELETE');
@@ -40,6 +41,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/user',UserRouter);
 app.use('/movie',MovieRouter);
 app.use('/type',MovieTypeRouter);
+app.use('/order',OrderRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
