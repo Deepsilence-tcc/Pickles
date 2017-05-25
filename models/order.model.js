@@ -35,7 +35,7 @@ var orderSchema = new mongoose.Schema({
         },
         isDelete: {
             type: Number,
-            defaut: 0
+            default: 0
         }, createAt: {
             type: Date,
             default: Date.now

@@ -44,7 +44,7 @@ module.exports = {
                 uniqueId:uniqueId,
                 isDelete:0,
             })
-                .sort('modifyAt:-1')
+                .sort('createAt:1')
                 .exec(function (err,docs) {
                 if(err) return next(err);
                 if(docs.length<=0){
